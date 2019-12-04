@@ -1,0 +1,32 @@
+
+  <mat-accordion>
+        <form #formAdd="ngForm" (submit)="onAdd(formAdd)">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Thông tin danh mục
+            </mat-panel-title>
+            <mat-panel-description>
+              tên danh mục
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <input matInput name="createdBy" [(ngModel)]="category.createdBy"  placeholder="người tạo">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="name" [(ngModel)]="category.name"  placeholder="tên danh mục">
+          </mat-form-field>
+
+        </mat-expansion-panel>
+        
+          
+        <div mat-dialog-actions class="justify-content-end">
+          <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" >
+          <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+          Save
+        </button>
+      </div>
+    </form>
+      </mat-accordion>

@@ -1,0 +1,66 @@
+
+  <!-- <div class="card">
+    <div class="card-header">
+      <h3>Thêm sản phẩm mới</h3>
+    </div>
+    <div class="card-body">
+      <form class="col-6 offset-lg-3" #formAdd="ngForm" (submit)="onAdd(formAdd)">
+        <div class="form-group">
+          <label for="">Product Name</label>
+          <input name="name" [(ngModel)]="product.name" type="text" class="form-control" required minlength="3"
+            #productName="ngModel">
+          <div class="alert alert-danger" *ngIf="productName.dirty && productName.errors?.required">
+              Product Name không được để trống
+          </div>
+          <div class="alert alert-danger" *ngIf="productName.dirty && productName.errors?.minlength">
+              Product Name không được dưới 3 ký tự
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Price</label>
+          <input name="price" [(ngModel)]="product.price" type="number" class="form-control" required
+            #productPrice="ngModel">
+          <div class="alert alert-danger" *ngIf="productPrice.dirty && productPrice.errors?.required">
+              Price không được để trống
+          </div>
+          <div class="form-group">
+              <label for="">Miêu tả</label>
+              <input name="description" [(ngModel)]="product.description" type="text" class="form-control" required
+                #productDesc="ngModel">
+              <div class="alert alert-danger" *ngIf="productDesc.dirty && productDesc.errors?.required">
+                Miêu tả không được để trống
+              </div>
+              </div>
+        </div>
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div> -->
+  <mat-accordion>
+        <form #formEdit="ngForm" (submit)="onEdit(formEdit)">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Thông tin danh mục
+            </mat-panel-title>
+            <mat-panel-description>
+              tên danh mục
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput name="createdBy" [(ngModel)]="category.createdBy"  placeholder="người tạo">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="name" [(ngModel)]="category.name"  placeholder="tên danh mục">
+          </mat-form-field>
+          <mat-slide-toggle name="active" [(ngModel)]="category.active" >Trạng thái</mat-slide-toggle>
+        </mat-expansion-panel>
+        <div mat-dialog-actions class="justify-content-end">
+          <button mat-raised-button >Cancel</button>
+        <button mat-raised-button color="primary" type="submit" >
+          <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+          Save
+        </button>
+      </div>
+    </form>
+      </mat-accordion>

@@ -1,0 +1,113 @@
+<mat-accordion>
+    <form #formEdit="ngForm" (submit)="onEdit(formEdit)">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Thông tin tai khoản
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your account
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <!-- <mat-form-field>
+        <input matInput name="username" [(ngModel)]="account.username"  placeholder="Tên đăng nhập">
+      </mat-form-field> -->
+  
+      <mat-form-field>
+          <input matInput name="password" [(ngModel)]="account.password"  placeholder="Mật khẩu">
+      </mat-form-field>
+      <!-- <mat-form-field>
+          <input matInput name="createdOn" [(ngModel)]="account.createdOn"  placeholder="Tạo bởi">
+      </mat-form-field> -->
+      <mat-form-field>
+          <input matInput name="firstName" [(ngModel)]="account.firstName"  placeholder="Tên">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="lastName" [(ngModel)]="account.lastName"  placeholder="Họ">
+    </mat-form-field>
+    <mat-form-field> 
+      <mat-label>{{account.role? "Quản lý" : "Khách hàng"}}</mat-label>
+      <mat-select [(ngModel)]="account.role" name="Role">
+        <mat-option>None</mat-option>
+        <mat-option value="true">Quản lý</mat-option>
+        <mat-option value="false">Khách hàng</mat-option>          
+      </mat-select>
+    </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Thông tin liên hệ
+          </mat-panel-title>
+          <mat-panel-description>
+            địa chỉ sdt...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <input matInput name="age" [(ngModel)]="account.age"  placeholder="Tuổi">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Chọn giới tính</mat-label>
+          <mat-select [(ngModel)]="account.gender" name="giới tính">
+            <mat-option>None</mat-option>
+            <mat-option value="true">Nam</mat-option>
+            <mat-option value="false">Nữ</mat-option>
+        
+            
+          </mat-select>
+        </mat-form-field>
+          <mat-form-field>
+              <input matInput name="email" [(ngModel)]="account.email"  placeholder="Email">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="telephone1" [(ngModel)]="account.telephone1"  placeholder="SDT1">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput name="telephone2" [(ngModel)]="account.telephone2"  placeholder="SDT2">
+              </mat-form-field>
+              <mat-form-field>
+                <textarea matInput name="address1" [(ngModel)]="account.address1"  placeholder="địa chỉ 1"></textarea>
+              </mat-form-field>
+              <mat-form-field>
+                  <textarea matInput name="address2" [(ngModel)]="account.address2"  placeholder="địa chỉ 2"></textarea>
+                </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Thông tin khác
+            </mat-panel-title>
+            <mat-panel-description>
+              ...
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+
+            <mat-form-field>
+                <input matInput name="company" [(ngModel)]="account.company"  placeholder="công ty">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput name="avatar" [(ngModel)]="account.avatar"  placeholder="ảnh đại điện">
+                </mat-form-field>
+                <mat-form-field>
+                  <textarea matInput name="description" [(ngModel)]="account.description"  placeholder="mô tả"></textarea>
+                </mat-form-field>
+                
+                <mat-slide-toggle name="active" [(ngModel)]="account.active" >Trạng thái</mat-slide-toggle> 
+                <mat-slide-toggle name="deleted" [(ngModel)]="account.deleted" >Đã xóa</mat-slide-toggle> 
+              
+                
+                
+        </mat-expansion-panel>
+        
+    <div mat-dialog-actions class="justify-content-end">
+      <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" >
+      <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+      Save
+    </button>
+  </div>
+</form>
+  </mat-accordion>

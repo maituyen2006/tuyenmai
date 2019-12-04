@@ -1,0 +1,247 @@
+
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(assets/images/Banner10.jpg);">
+    <h2 class="l-text2 t-center">
+      PRODUCTS
+    </h2>
+    <p class="m-text13 t-center">
+      Send Love To The Product 
+    </p>
+  </section>
+  
+  
+  <!-- Content page -->
+  <section class="bgwhite p-t-55 p-b-65">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+          <div class="leftbar p-r-20 p-r-0-sm">
+            <!--  -->
+            <h4 class="m-text14 p-b-7">
+              Categories
+            </h4>
+  
+            <ul class="p-b-54" *ngFor="let category of dataSource1.data">
+              <li class="p-t-4">
+                <a routerLink="/category-product/{{category.categoryId}}" class="s-text13 active1">
+                  {{category.name}}
+                </a>
+              </li>
+  
+             
+            </ul>
+  
+            <!--  -->
+            <h4 class="m-text14 p-b-32">
+              Filters
+            </h4>
+  
+            <div class="filter-price p-t-22 p-b-50 bo3">
+              <div class="m-text15 p-b-17">
+                Price
+              </div>
+  
+              <!-- <div class="wra-filter-bar">
+                <div id="filter-bar"></div>
+              </div> -->
+              <mat-slider thumbLabel [displayWith]="formatLabel" [(value)]="getPrice"  tickInterval="1k" min="10000" max="10000000"></mat-slider>
+
+  
+              <div class="flex-sb-m flex-w p-t-16">
+                <div class="w-size11">
+                  <!-- Button -->
+                  <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+                    Filter
+                  </button>
+                </div>
+  
+                <div class="s-text3 p-t-10 p-b-10">
+                  Range: $ {{getPrice}}
+                </div>
+              </div>
+            </div>
+  
+            <!-- <div class="filter-color p-t-22 p-b-50 bo3">
+                
+              <div class="m-text15 p-b-12">
+                Color
+              </div> -->
+              <!-- <mat-form-field >
+                  <mat-label>Chọn màu</mat-label>
+                  <mat-select (selectionChange)="doSomething($event)">
+                    <mat-option value="">Default Sorting</mat-option>
+                    <mat-option value="abc" >Price: low to high</mat-option>
+                    <mat-option value="xcc" >Price: high to low</mat-option>
+                  
+                  </mat-select>
+                </mat-form-field> -->
+              <!-- <form #formColor="ngForm" (submit)="onColor(formColor)">
+              <ul class="flex-w">
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter1" type="radio" name="color-filter" >
+                  <label class="color-filter color-filter1" for="color-filter1"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter2" type="radio" name="color-filter">
+                  <label class="color-filter color-filter2" for="color-filter2"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter3" type="radio" name="color-filter">
+                  <label class="color-filter color-filter3" for="color-filter3"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter4" type="radio" name="color-filter">
+                  <label class="color-filter color-filter4" for="color-filter4"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter5" type="radio" name="color-filter">
+                  <label class="color-filter color-filter5" for="color-filter5"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter6" type="radio" name="color-filter">
+                  <label class="color-filter color-filter6" for="color-filter6"></label>
+                </li>
+  
+                <li class="m-r-10">
+                  <input class="checkbox-color-filter" id="color-filter7" type="radio" name="color-filter">
+                  <label class="color-filter color-filter7" for="color-filter7"></label>
+                </li>
+              </ul>
+              </form> -->
+
+            <!-- </div> -->
+            <!-- <form id="filter">
+            <div class="search-product pos-relative bo4 of-hidden">
+              <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="name" placeholder="Search Products..." [(ngModel)]="term"  >
+              
+              <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4" type="submit">
+                <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+              </button>
+  
+            </div>
+          </form> -->
+          <mat-form-field>
+              <input matInput placeholder="Search Products..." #keyword (keyup)="applyFilter($event.target.value)"  >
+              
+              <button mat-button *ngIf="keyword.value" matSuffix mat-icon-button aria-label="Clear"
+                (click)="keyword.value='';applyFilter('')">
+                <mat-icon>close</mat-icon>
+              </button>
+  
+          </mat-form-field>
+          </div>
+        </div>
+  
+        <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+          <!--  -->
+          <div class="flex-sb-m flex-w p-b-35">
+            <div class="flex-w">
+              <div class="rs2-select2 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                  <mat-form-field >
+                      <mat-label>Default Sorting</mat-label>
+                      <mat-select [(value)]="selected">
+                        <mat-option>Default Sorting</mat-option>
+                        <mat-option value="option1">Price: low to high</mat-option>
+                        <mat-option value="option2">Price: high to low</mat-option>
+                      
+                      </mat-select>
+                    </mat-form-field>
+              </div>
+   
+              <div class="rs2-select2 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                  <mat-form-field >
+                      <mat-label>Price</mat-label>
+                      <mat-select [(value)]="selected1">
+                        <mat-option>Default Sorting</mat-option>
+                        <mat-option value="option1">$0.00 - $50.00</mat-option>
+                        <mat-option value="option2">$50.00 - $100.00</mat-option>
+                        <mat-option value="option3">$100.00 - $150.00</mat-option>
+                        <mat-option value="option4">$150.00 - $200.00</mat-option>
+                        <mat-option value="option5">$200.00+</mat-option>
+                      
+                      </mat-select>
+                    </mat-form-field>
+                
+              </div>
+              <div class="rs2-select2 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+
+                    <mat-form-field>
+                      <mat-label>Chọn một màu sắc</mat-label>
+                      <mat-select (selectionChange)="onColor($event)" name="color">
+                        <mat-option value="">None</mat-option>
+                        <mat-option value="Không có màu">Không có màu</mat-option>
+                        <mat-option value="Đỏ">Đỏ</mat-option>
+                        <mat-option value="Trắng">Trắng</mat-option>
+                        <mat-option value="Hồng">Hồng</mat-option>
+                        <mat-option value="Xanh lục">Xanh lục</mat-option>
+                        <mat-option value="Xanh dương">Xanh dương</mat-option>
+                        <mat-option value="Tím">Tím</mat-option>
+                        <mat-option value="Vàng">Vàng</mat-option>
+                        <mat-option value="Đen">Đen</mat-option>
+                        <mat-option value="Nâu">Nâu</mat-option>
+                        <mat-option value="Bạc">Bạc</mat-option>
+                        <mat-option value="Cam">Cam</mat-option>
+                        
+                      </mat-select>
+                    </mat-form-field>
+              </div>
+            </div>          
+              
+            
+          </div>
+  
+          <!-- Product -->
+          <div class="row" >
+            <div class="col-sm-12 col-md-6 col-lg-4 p-b-50" *ngFor="let product of dataSource.data| slice: paginationFrom() : paginationTo()" >
+              
+              <div class="block2">
+                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                  <img src="{{product.image}}" alt="IMG-PRODUCT" width="255px" height="330px">
+  
+                  <div class="block2-overlay trans-0-4">
+                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                      <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                      <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                    </a>
+  
+                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                     
+                      <button type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" (click)="onAddToCart(product)">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="block2-txt p-t-20">
+                  <a routerLink="/products-detail/{{product.productId}}"  class="block2-name dis-block s-text3 p-b-5">
+                  {{product.name}}
+                  </a>
+  
+                  <span class="block2-price m-text6 p-r-5">
+                     {{product.price | currency:"VND"}}
+                  </span>
+                </div>
+              </div>
+            </div>
+  
+           
+          </div>
+          
+          <!-- Pagination -->
+          <!-- <div class="pagination flex-m flex-w p-t-26">
+            <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+            <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+          </div> -->
+          <mat-card-actions>
+            <mat-paginator showFirstLastButtons [pageSize]="9" [pageSizeOptions]="[6, 9, 15, 23]">
+            </mat-paginator>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <mat-card class="example-card">
+    <mat-card-header class="justify-content-between">
+      <mat-card-title>Danh Sách sản phẩm</mat-card-title>
+    </mat-card-header>
+    <div class="mb-2 style-flex">
+      <div>
+        <button mat-raised-button color="primary" (click)="insert()" class="mr-2">Thêm sản phẩm</button>
+        <input type="file" #inputFile class="d-none" (change)="handleFileInput($event.target)" />
+      </div>
+    </div>
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="Keyword" #keyword (keyup)="applyFilter($event.target.value)">
+      <button mat-button *ngIf="keyword.value" matSuffix mat-icon-button aria-label="Clear"
+        (click)="keyword.value='';applyFilter('')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+    <mat-card-content>
+      <div class="table-responsive">
+        <table id="staff" mat-table [dataSource]="dataSource" matSort matSortDisableClear width="100%"
+          class="mat-elevation-z8">
+
+          <!-- ID Column -->
+          <!-- <ng-container matColumnDef="productId">
+            <th mat-header-cell *matHeaderCellDef >Product Id</th>
+            <td mat-cell *matCellDef="let element">{{element.productId}}</td>
+          </ng-container> -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+          <ng-container matColumnDef="size">
+            <th mat-header-cell *matHeaderCellDef  class="size">Size</th>
+            <td mat-cell *matCellDef="let element">{{element.size}}</td>
+          </ng-container>
+          <ng-container matColumnDef="origin">
+            <th mat-header-cell *matHeaderCellDef >Xuất xứ</th>
+            <td mat-cell *matCellDef="let element">{{element.origin}}</td>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Giá</th>
+            <td mat-cell *matCellDef="let element">{{element.price}}</td>
+          </ng-container>
+          <ng-container matColumnDef="categoryId" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Loại</th>
+            <td mat-cell *matCellDef="let element">{{element.categoryId?element.categoryId.name:''}}</td>
+          </ng-container>
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef >Mô Tả</th>
+            <td mat-cell *matCellDef="let element">{{element.description}}</td>
+          </ng-container>
+          <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef >Color</th>
+            <td mat-cell *matCellDef="let element">{{element.color}}</td>
+          </ng-container>
+          <ng-container matColumnDef="shopStatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cửa hàng</th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container [ngSwitch]="element.shopStatus">
+                <span *ngSwitchCase="true" class="one">Còn hàng</span>
+                <span *ngSwitchDefault class="two">Hết hàng</span>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="warehouseStatus"  >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Trong kho</th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container [ngSwitch]="element.warehouseStatus">
+                <span *ngSwitchCase="true" class="one">Còn hàng</span>
+                <span *ngSwitchDefault class="two">Hết hàng</span>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="productStatus"  >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Trạng thái</th>
+            <td mat-cell *matCellDef="let element">
+              <ng-container [ngSwitch]="element.productStatus">
+                <span *ngSwitchCase="true" class="one">Chưa xóa</span>
+                <span *ngSwitchDefault class="two">Đã xóa</span>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="itemOnEquipment">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Sản phẩm tại cửa hàng</th>
+              <td mat-cell *matCellDef="let element">{{element.itemOnEquipment}}</td>
+            </ng-container>
+            <ng-container matColumnDef="itemInStock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Sản phẩm trong kho</th>
+                <td mat-cell *matCellDef="let element">{{element.itemInStock}}</td>
+              </ng-container>
+          <!-- IsActive Column -->
+          
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef style="width:1%">Action</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-menu #appMenu="matMenu" xPosition="before">
+                <button (click)="edit(element)" mat-menu-item>Edit</button>            
+                <button (click)="delete(element.productId)" mat-menu-item>Delete</button>
+
+
+              </mat-menu>
+              <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-paginator showFirstLastButtons [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]">
+      </mat-paginator>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,95 @@
+
+ 
+  <mat-accordion>
+    <form #formEdit="ngForm" (submit)="onEdit(formEdit)">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and age
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput name="createdBy" [(ngModel)]="supplier.createdBy"  placeholder="createdBy">
+      </mat-form-field>
+  
+      <mat-form-field>
+          <input matInput name="createdOn" [(ngModel)]="supplier.createdOn"  placeholder="createdOn">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput name="firstName" [(ngModel)]="supplier.firstName"  placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput name="lastName" [(ngModel)]="supplier.lastName"  placeholder="LastName">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Descreption
+          </mat-panel-title>
+          <mat-panel-description>
+            Type your descreption
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <input matInput name="email1" [(ngModel)]="supplier.email1"  placeholder="Email1">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="email2" [(ngModel)]="supplier.email2"  placeholder="Email2">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="company" [(ngModel)]="supplier.company"  placeholder="Company">
+            </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              More
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your More
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <input matInput name="address1" [(ngModel)]="supplier.address1"  placeholder="Address1">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="address2" [(ngModel)]="supplier.address2"  placeholder="Address2">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="city" [(ngModel)]="supplier.city"  placeholder="City">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput name="telephone1" [(ngModel)]="supplier.telephone1"  placeholder="Telephone1">
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput name="telephone2" [(ngModel)]="supplier.telephone2"  placeholder="Telephone2">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput name="telephone1" [(ngModel)]="supplier.telephone1"  placeholder="Telephone1">
+                  </mat-form-field>
+                <mat-slide-toggle name="blackList" [(ngModel)]="supplier.blackList" >Black List</mat-slide-toggle>
+                <mat-form-field>
+                    <input matInput name="blockReason" [(ngModel)]="supplier.blockReason"  placeholder="BlockReason">
+                  </mat-form-field>
+                
+                
+                
+        </mat-expansion-panel>
+        
+    <div mat-dialog-actions class="justify-content-end">
+      <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" >
+      <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+      Save
+    </button>
+  </div>
+</form>
+  </mat-accordion>

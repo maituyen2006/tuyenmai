@@ -1,0 +1,120 @@
+
+ 
+  <mat-accordion>
+    <form #formAdd="ngForm" (submit)="onAdd(formAdd)">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          thông tin sản phẩm
+        </mat-panel-title>
+        <mat-panel-description>
+          tên và giá...
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field>
+        <input matInput name="createdBy" [(ngModel)]="product.createdBy"  placeholder="người tạo">
+      </mat-form-field>
+  
+      <mat-form-field>
+          <input matInput name="createdOn" [(ngModel)]="product.createdOn"  placeholder="ngày tạo">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput name="name" [(ngModel)]="product.name"  placeholder="tên sản phẩm">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput name="price" [(ngModel)]="product.price"  placeholder="giá">
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            thông tin nhà cung cấp
+          </mat-panel-title>
+          <mat-panel-description>
+           thương hiệu hình anh...
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        
+        <mat-form-field>
+            <input matInput name="brand" [(ngModel)]="product.brand"  placeholder="thương hiệu">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="image" [(ngModel)]="product.image"  placeholder="hình ảnh">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="size" [(ngModel)]="product.size"  placeholder="Size">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput name="imageDetail" [(ngModel)]="product.imageDetail"  placeholder="hình ảnh chi tiết">
+              </mat-form-field>
+              <mat-form-field>
+                  <textarea matInput name="description" [(ngModel)]="product.description"  placeholder="mô tả sản phẩm"></textarea>
+                </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              thông tin khác
+            </mat-panel-title>
+            <mat-panel-description>
+              ...
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <input matInput name="origin" [(ngModel)]="product.origin"  placeholder="Origin">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="itemOnEquipment" [(ngModel)]="product.itemOnEquipment"  placeholder="số lượng trên cửa hàng">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="itemInStock" [(ngModel)]="product.itemInStock"  placeholder="số lượng trong kho">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput name="material" [(ngModel)]="product.material"  placeholder="chất liệu">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>màu sắc</mat-label>
+                    <mat-select [(ngModel)]="product.color" name="color">
+                      <mat-option>None</mat-option>
+                      <mat-option value="Không có màu">Không có màu</mat-option>
+                      <mat-option value="Đỏ">Đỏ</mat-option>
+                      <mat-option value="Trắng">Trắng</mat-option>
+                      <mat-option value="Hồng">Hồng</mat-option>
+                      <mat-option value="Xanh lục">Xanh lục</mat-option>
+                      <mat-option value="Xanh dương">Xanh dương</mat-option>
+                      <mat-option value="Tím">Tím</mat-option>
+                      <mat-option value="Vàng">Vàng</mat-option>
+                      <mat-option value="Đen">Đen</mat-option>
+                      <mat-option value="Nâu">Nâu</mat-option>
+                      <mat-option value="Bạc">Bạc</mat-option>
+                      <mat-option value="Cam">Cam</mat-option>
+                      
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>danh mục</mat-label>
+                      <mat-select [(ngModel)]="product.categoryId" name="categoryId">
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let category of dataSource1.data" [value]="category">{{category.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                <mat-slide-toggle name="shopStatus" [(ngModel)]="product.shopStatus" >Shop Status</mat-slide-toggle> 
+                <mat-slide-toggle name="warehouseStatus" [(ngModel)]="product.warehouseStatus" >Ware House Status</mat-slide-toggle>
+               
+               
+                
+                
+        </mat-expansion-panel>
+        
+    <div mat-dialog-actions class="justify-content-end">
+      <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" >
+      <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+      Save
+    </button>
+  </div>
+</form>
+  </mat-accordion>
