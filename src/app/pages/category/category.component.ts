@@ -8,7 +8,7 @@ import { ResponseApi } from 'app/class/response-api';
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.component.html',
+  templateUrl: './category.component.html', 
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {

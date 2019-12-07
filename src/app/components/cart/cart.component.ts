@@ -12,12 +12,15 @@ import { MatTableDataSource } from '@angular/material';
 export class CartComponent implements OnInit {
 product : Products =new Products();
 products=[];
+total:any;
+productss:any;
 dataSource = new MatTableDataSource <Products>();
   constructor(private route:ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit() {
     this.products = JSON.parse(localStorage.getItem('dataProduct'));
-    
+    this.total=this.products.map(totals=>totals.price).reduce((a,b)=>a+b,0);
+    console.log(this.total)
   }
   removeProduct(product){
     // JSON.stringify(localStorage.removeItem('dataProduct'));
@@ -32,6 +35,12 @@ dataSource = new MatTableDataSource <Products>();
       localStorage.setItem('dataProduct',JSON.stringify(this.products));
   }
 }
+
+getSubtotal(){
+  this.productss.map(product => product.quantity * product.price).reduce((prev, next) => prev + next);
+  console.log(this.productss);
+}
+
   // delete(kcsTicketDetail) {
   //   const index = this.dataSource.indexOf(kcsTicketDetail);
   //   if (index !== -1) {

@@ -35,7 +35,11 @@
                     <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                   </button>
   
-                  <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="{{product.quantity}}">
+                  <form>
+                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                    <input type="number" id="number" value="0" />
+                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                  </form>
   
                   <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                     <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
@@ -84,7 +88,7 @@
           </span>
   
           <span class="m-text21 w-size20 w-full-sm">
-            $39.00
+            $ {{total}}
           </span>
         </div>
   

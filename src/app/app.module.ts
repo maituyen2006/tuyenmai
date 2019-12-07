@@ -39,25 +39,16 @@ import { VerifiedGuard } from './layouts/admin-layout/guard/verified.guard';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     ClinentLayoutComponent,
     LoginLayoutComponent,
- 
     
-   
-    
-
-
-    
-      
-
-   
- 
-
-    
+       
   ],
   imports: [
       BrowserAnimationsModule,

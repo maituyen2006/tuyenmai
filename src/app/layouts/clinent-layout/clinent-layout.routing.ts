@@ -7,6 +7,7 @@ import { AboutClientComponent } from 'app/components/about-client/about-client.c
 import { BlogClientComponent } from 'app/components/blog-client/blog-client.component';
 import { ProductsDetailClientComponent } from 'app/components/products-detail-client/products-detail-client.component';
 import { CategoryProductComponent } from 'app/components/category-product/category-product.component';
+import { AccountEditComponent } from 'app/components/account-edit/account-edit.component';
 
 
 
@@ -18,6 +19,7 @@ export const  ClinentLayoutRoutes: Routes = [
     { path: 'cart',   component: CartComponent},
     { path: 'about',   component: AboutClientComponent},
     { path: 'blog',   component: BlogClientComponent},
+    { path: 'account-edit' , component: AccountEditComponent},
     {path:'products-detail/:id', component: ProductsDetailClientComponent},
     {path:'category-product/:name', component: CategoryProductComponent}
 

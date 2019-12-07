@@ -31,7 +31,6 @@ import { AccountEditComponent } from 'app/dialog/account-edit/account-edit.compo
 import { SupplierInsertComponent } from 'app/dialog/supplier-insert/supplier-insert.component';
 import { SupplierEditComponent } from 'app/dialog/supplier-edit/supplier-edit.component';
 import { VerifiedGuard } from './guard/verified.guard';
-import { AuthGuard } from 'app/dialog/login/auth/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from 'app/interceptor/request.interceptor';
 import { CommentComponent } from 'app/pages/comment/comment.component';
@@ -39,6 +38,7 @@ import { ProductStatisticsComponent } from 'app/pages/product-statistics/product
 import { RevenueStatisticsComponent } from 'app/pages/revenue-statistics/revenue-statistics.component';
 import { SupplierBillComponent } from 'app/pages/supplier-bill/supplier-bill.component';
 import { SalesoderDetailComponent } from 'app/dialog/salesoder-detail/salesoder-detail.component';
+import { BannerComponent } from 'app/pages/banner/banner.component';
 
 
 
@@ -46,7 +46,7 @@ import { SalesoderDetailComponent } from 'app/dialog/salesoder-detail/salesoder-
 const LAYOUT_COMPONENTS =[HomeComponent,  BanghangComponent,  ProductsComponent,  CategoryComponent,  DashboardComponent,
   UserComponent,  TableComponent,  TypographyComponent,  IconsComponent,  MapsComponent,  NotificationsComponent,
   SupplierComponent, SalesoderComponent, PurchasesoderComponent, InvoiceComponent, AccountComponent, AccountDetailComponent,
-  CommentComponent, ProductStatisticsComponent,RevenueStatisticsComponent, SupplierBillComponent];
+  CommentComponent, ProductStatisticsComponent,RevenueStatisticsComponent, SupplierBillComponent, BannerComponent];
 
 const ENTRY_COMPONENTS = [ProductInsertComponent, ProductEditComponent, CategoryInsertComponent, CategoryEditComponent, AccountInsertComponent,
   AccountEditComponent, SupplierInsertComponent,SalesoderDetailComponent,

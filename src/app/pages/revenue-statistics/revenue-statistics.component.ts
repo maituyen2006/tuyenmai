@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-revenue-statistics',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RevenueStatisticsComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['date','orderId','itemsQuantity','itemsTotalPrice'];
+
+  constructor(private snackBar: MatSnackBar,private dialog: MatDialog) { }
 
   ngOnInit() {
   }

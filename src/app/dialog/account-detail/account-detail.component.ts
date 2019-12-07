@@ -10,7 +10,7 @@ import { ResponseApi } from 'app/class/response-api';
   styleUrls: ['./account-detail.component.scss']
 })
 export class AccountDetailComponent implements OnInit {
-  id: String;
+  
 
   account: Account = new Account();
 
@@ -25,7 +25,7 @@ export class AccountDetailComponent implements OnInit {
   getAccountEdit() {
     this.accountService.getAccountEdit(this.dataDialog.accountId).subscribe((res: ResponseApi) => {
       this.account = res.data;    
-      
+      console.log(this.account)
     });
 
   }

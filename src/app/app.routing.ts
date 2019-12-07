@@ -15,8 +15,8 @@ export const AppRoutes: Routes = [
         {     path: '',   loadChildren: './layouts/clinent-layout/clinent-layout.module#ClinentLayoutModule',
   }]},
   { 
-    path: '',  component: AdminLayoutComponent, 
-    // canActivate: [VerifiedGuard] ,
+    path: 'admin',  component: AdminLayoutComponent, 
+    canActivate: [VerifiedGuard] ,
     children: [
         {
       path: '',  loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule',

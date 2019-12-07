@@ -10,7 +10,7 @@ import { ResponseApi } from 'app/class/response-api';
   styleUrls: ['./salesoder-detail.component.scss']
 })
 export class SalesoderDetailComponent implements OnInit {
-  id: String;
+  
 
   salesoder: Salesoder = new Salesoder();
 
@@ -23,9 +23,9 @@ export class SalesoderDetailComponent implements OnInit {
     this.getSalesoderEdit(); 
   }
   getSalesoderEdit() {
-    this.selasoderService.getsalesoderEdit(this.dataDialog.accountId).subscribe((res: ResponseApi) => {
+    this.selasoderService.getsalesoderEdit(this.dataDialog.orderId).subscribe((res: ResponseApi) => {
       this.salesoder = res.data;    
-      console.log(res.data)
+      console.log(res.data) 
     });
 
   }

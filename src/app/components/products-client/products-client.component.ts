@@ -19,11 +19,12 @@ export class ProductsClientComponent implements OnInit {
   products: Products[] = [];
   productCart: Products[] = [];
   @Input() product: Products
-  dataSource = new MatTableDataSource<Products>();
-  private dataLength: number;
   tempDataSource = [];
   tempDataSource1 = [];
+  tempDataSource2 = [];
   dataColor : String;
+  dataCategory : String;
+  dataSource = new MatTableDataSource<Products>();
   dataSource1 = new MatTableDataSource<Category>();
   constructor( private productsService : ProductService, private cartService : CartService, private categoryService: CategoryService) { }
 
@@ -41,6 +42,7 @@ export class ProductsClientComponent implements OnInit {
     this.productsService.pagingActive().subscribe((res: ResponseApi) => {
       this.tempDataSource = res.data;
       this.tempDataSource1 = res.data;
+      this.tempDataSource2 = res.data;
       this.dataSource.data = res.data;
       // console.log(this.dataSource.data)
     });
@@ -112,6 +114,13 @@ onColor(event){
   this.dataColor=event.value;
   this.dataSource.data = this.tempDataSource1.filter(colors => {
     return colors.color.includes(this.dataColor);
+    
+  });
+}
+onCategory(event){
+  this.dataCategory=event.value;
+ this.dataSource.data= this.tempDataSource2.filter(data11 => {
+  return data11.categoryId.categoryId.includes(this.dataCategory)
     
   });
 }

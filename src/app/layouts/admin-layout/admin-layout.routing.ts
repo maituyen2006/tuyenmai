@@ -22,6 +22,7 @@ import { CommentComponent } from 'app/pages/comment/comment.component';
 import { ProductStatisticsComponent } from 'app/pages/product-statistics/product-statistics.component';
 import { RevenueStatisticsComponent } from 'app/pages/revenue-statistics/revenue-statistics.component';
 import { SupplierBillComponent } from 'app/pages/supplier-bill/supplier-bill.component';
+import { BannerComponent } from 'app/pages/banner/banner.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {path: 'admin', component: AdminLayoutComponent,  
@@ -41,6 +42,7 @@ export const AdminLayoutRoutes: Routes = [
             { path: 'supplierBill-manage',           component: SupplierBillComponent },
             { path: 'productStatistics-manage',           component: ProductStatisticsComponent },
             { path: 'revenueStatistics-manage',           component: RevenueStatisticsComponent },
+            { path: 'bannerComponent-manage', component: BannerComponent},
             { path: 'user-manage',           component: UserComponent },
             { path: 'table-manage',          component: TableComponent },
             { path: 'typography-manage',     component: TypographyComponent },

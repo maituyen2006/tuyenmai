@@ -18,7 +18,7 @@ itemOnEquipment: Number;
 itemInStock: Number;
 warehouseStatus: Boolean;
 shopStatus: Boolean;
-comment: String;
+// comment: String;
 optionId: String;
 productStatus: String;
 color: String;

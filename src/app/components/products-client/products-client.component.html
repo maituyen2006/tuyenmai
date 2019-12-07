@@ -19,17 +19,14 @@
             <h4 class="m-text14 p-b-7">
               Categories
             </h4>
-  
-            <ul class="p-b-54" *ngFor="let category of dataSource1.data">
-              <li class="p-t-4">
-                <a routerLink="/category-product/{{category.categoryId}}" class="s-text13 active1">
-                  {{category.name}}
-                </a>
-              </li>
-  
-             
-            </ul>
-  
+            <mat-form-field>
+                <mat-label>Vui lòng chọn danh mục</mat-label>
+                <mat-select (selectionChange)="onCategory($event)">
+                  <mat-option value="">None</mat-option>
+                  <mat-option *ngFor="let category of dataSource1.data" value="{{category.categoryId}}">{{category.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
             <!--  -->
             <h4 class="m-text14 p-b-32">
               Filters
@@ -171,7 +168,7 @@
 
                     <mat-form-field>
                       <mat-label>Chọn một màu sắc</mat-label>
-                      <mat-select (selectionChange)="onColor($event)" name="color">
+                      <mat-select  (selectionChange)="onColor($event)" name="color">
                         <mat-option value="">None</mat-option>
                         <mat-option value="Không có màu">Không có màu</mat-option>
                         <mat-option value="Đỏ">Đỏ</mat-option>
@@ -185,7 +182,7 @@
                         <mat-option value="Nâu">Nâu</mat-option>
                         <mat-option value="Bạc">Bạc</mat-option>
                         <mat-option value="Cam">Cam</mat-option>
-                        
+                        <mat-option value="Đồng">Đồng</mat-option>
                       </mat-select>
                     </mat-form-field>
               </div>

@@ -38,10 +38,7 @@ export class ProductsComponent implements OnInit {
           case 'categoryId': {
             return item.categoryId ? item.categoryId.name : item.productId;
           }
-          default: return item[property];
-
-
-          
+          default: return item[property];         
         }
       };    
       this.dataSource.sort = this.sort; 
@@ -52,8 +49,7 @@ export class ProductsComponent implements OnInit {
   }
   public paging1(){
     this.categoryService.paging().subscribe((res1: ResponseApi) => {
-      this.dataSource1.data = res1.data;
-      
+      this.dataSource1.data = res1.data;  
 
       
  

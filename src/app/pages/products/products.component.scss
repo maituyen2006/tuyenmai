@@ -24,15 +24,26 @@ button{
     color: #ff0000;
 }
 .mat-column-price {
-    width: 110px;
-    padding-left: 20px;
+    width: 80px;
+    padding-left: 10px;
     
   }
+
+.mat-column-categoryId {
+    width: 80px;
+    padding-left: 10px;
+    
+  }
+
+.mat-column{
+      margin: 0px auto;
+  }
+
 table{
-    width: auto;
-    height: auto;
+    width: 1500px;
+    height: auto;    
    }
-.size{
-    padding-right: 5px;
+
+.mat-column-size{
+    padding-right: 10px;
 }
-   

@@ -141,20 +141,20 @@ export class LoginComponent implements OnInit {
 
     this.preventDefault( event );
     
-    // this.preventDefault(event);
-    // if (!this.username || !this.password) {
-    //     alert('Tên đăng nhập hoặc mật khẩu không được để trống');
-    //     return;
-    // }
+    this.preventDefault(event);
+    if (!this.username || !this.password) {
+        alert('Tên đăng nhập hoặc mật khẩu không được để trống');
+        return;
+    }
     let formData = new FormData();
     let md5 = new Md5();
     formData.append( 'username', this.username );
     formData.append( 'password', md5.appendStr( this.password ).end().toString() );
 
-    // console.log( this.username, this.password )
+    
     this.accountS.login( formData ).subscribe( ( res: ResponseApi ) =>
     {
-        // console.log( res );
+       
         if ( res.success ) {
             localStorage.setItem( 'CURRENT_ACCOUNT', JSON.stringify( res.data ) );
             this.snackBar.open( res.message, 'Đóng', {
@@ -162,14 +162,13 @@ export class LoginComponent implements OnInit {
             } );
             this.route.paramMap.subscribe( params =>   {
                 const returnUrl = params['returnUrl'];
-                // console.log( returnUrl );
-                // if ( returnUrl ){
+                
                     if ( res.data.role == true )   {
-                        console.log(res.data.role)
-                        this.router.navigate( ['/home-manage'] );
+                        
+                        this.router.navigate( ['/admin/home-manage'] );
 
                     }
-                // }
+                
                 else   {
                     this.router.navigate( ['/home'] );
                 }

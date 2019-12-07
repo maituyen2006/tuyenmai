@@ -17,7 +17,7 @@
       </mat-form-field>
   
       <mat-form-field>
-          <input matInput name="createdOn" [(ngModel)]="product.createdOn"  placeholder="ngày tạo">
+          <input matInput name="createdOn" disabled [(ngModel)]="product.createdOn"  placeholder="ngày tạo">
       </mat-form-field>
       <mat-form-field>
           <input matInput name="name" [(ngModel)]="product.name"  placeholder="tên sản phẩm">
@@ -91,7 +91,7 @@
                       <mat-option value="Nâu">Nâu</mat-option>
                       <mat-option value="Bạc">Bạc</mat-option>
                       <mat-option value="Cam">Cam</mat-option>
-                      
+                      <mat-option value="Đồng">Đồng</mat-option>
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field>

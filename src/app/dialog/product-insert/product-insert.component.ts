@@ -29,6 +29,7 @@ dataSource1 = new MatTableDataSource <Category>();
   ngOnInit() {
     
     this.pagingCategory();
+    this.product.createdOn=new Date();
   }
   // public paging(){
   //   this.productService.paging().subscribe((res: ResponseApi) => {

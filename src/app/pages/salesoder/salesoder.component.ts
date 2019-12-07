@@ -79,8 +79,9 @@ export class SalesoderComponent implements OnInit {
         this.dialog.open(SalesoderDetailComponent, {
           width: '60%',
           maxHeight: '90vh',
-          data: { orderId }
+          data: { orderId }         
         });
+        
       }
 
 

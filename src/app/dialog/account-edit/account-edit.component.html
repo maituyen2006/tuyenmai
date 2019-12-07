@@ -28,7 +28,7 @@
     </mat-form-field>
     <mat-form-field> 
       <mat-label>{{account.role? "Quản lý" : "Khách hàng"}}</mat-label>
-      <mat-select [(ngModel)]="account.role" name="Role">
+      <mat-select [(ngModel)]="account.role" name="role">
         <mat-option>None</mat-option>
         <mat-option value="true">Quản lý</mat-option>
         <mat-option value="false">Khách hàng</mat-option>          
@@ -49,8 +49,8 @@
           <input matInput name="age" [(ngModel)]="account.age"  placeholder="Tuổi">
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Chọn giới tính</mat-label>
-          <mat-select [(ngModel)]="account.gender" name="giới tính">
+          <mat-label>{{account.gender}}</mat-label>
+          <mat-select [(ngModel)]="account.gender" name="gender">
             <mat-option>None</mat-option>
             <mat-option value="true">Nam</mat-option>
             <mat-option value="false">Nữ</mat-option>

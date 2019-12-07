@@ -25,11 +25,13 @@ import { ProductsDetailClientComponent } from 'app/components/products-detail-cl
 import { CategoryProductComponent } from 'app/components/category-product/category-product.component';
 import { ConvertPipe } from 'app/pipe/convert.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountEditComponent } from 'app/components/account-edit/account-edit.component';
 
 const LAYOUT_COMPONENTS =[HomeClientComponent,  ProductsClientComponent,  SlideClientComponent,  Banner1ClientComponent,
   Banner2ClientComponent,  NewClientComponent,  BannerVideoClientComponent,  FollowClientComponent,  ShoppingClientComponent,
-  ContactClientComponent,  CartComponent,  AboutClientComponent,  BlogClientComponent,  ProductsDetailClientComponent,CategoryProductComponent,ConvertPipe];
-const ENTRY_COMPONENTS =[]
+  ContactClientComponent, 
+   CartComponent,  AboutClientComponent,  BlogClientComponent,  ProductsDetailClientComponent,CategoryProductComponent,ConvertPipe];
+const ENTRY_COMPONENTS =[AccountEditComponent]
 @NgModule({
   imports: [
     CommonModule,

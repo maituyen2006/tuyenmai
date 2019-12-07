@@ -4,6 +4,8 @@ import { ProductService } from 'app/service/product.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { ResponseApi } from 'app/class/response-api';
+import { Comment } from 'app/class/comment';
+import { CommentService } from 'app/service/comment.service';
 
 @Component({
   selector: 'app-products-detail-client',
@@ -16,23 +18,24 @@ export class ProductsDetailClientComponent implements OnInit {
   products: Products[] = [];
   productt: Products = new Products();
   dataSource = new MatTableDataSource <Products>();
+  dataSource1 = new MatTableDataSource <Comment>();
   panelOpenState = false;
-  constructor(private productsService : ProductService, private routes: ActivatedRoute) { }
+  constructor(private commentService: CommentService,private productsService : ProductService, private routes: ActivatedRoute) { }
 
   ngOnInit() {
+    this.paging();
     this.loadScript();
     this.loadScript1();
     this.loadScript2();
-    // this.loadScript3();
+   
     this.getproductDetail();
   }
-  // paging(){
-  //   this.productsService.paging1().subscribe(data => {
-  //     this.products = data;
-  //     this.dataSource.data=data;
+  paging(){
+    this.commentService.paging().subscribe((res : ResponseApi) => {
+            this.dataSource.data=res.data;
     
-  //   });
-  // }
+    });
+  }
   getproductDetail(){
     this.routes.params.subscribe(params => {
        const { id } = params;
